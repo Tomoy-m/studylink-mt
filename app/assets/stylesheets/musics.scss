@@ -1,0 +1,51 @@
+// Place all the styles related to the musics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.music_title {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 50px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.music_sample {
+  margin-left: 10%;
+  font-size: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sample_music {
+  text-align: center;
+  width: calc((100% - 40px)/2);
+  margin-top: 40px;
+  margin: 10px;
+}
+
+.form-title {
+  margin-left: 10%;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.audio-form {
+  margin-top: 20px;
+  margin-left: 10%;
+}
+
+.music_upload {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    display: block;
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todoリスト</title>
+</head>
+
+<body>
+<!--ヘッダー-->
+<header>  
+<!--ヘッダーロゴ-->
+  <div class="main_logo">
+    <%= link_to "StudyLink", homes_path, class: "logo" %>
+  </div>
+
+<!--ハンバーガーメニュー-->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<!--スマホ用ハンバーガーメニューのリスト-->
+  <nav class="sm">
+    <ul class="list">  <%# このサイト参照 https://zenn.dev/ganmo3/articles/8ae23a01dd1206 %>
+      <li><%= link_to "ホーム", homes_path, class: "sub_item" %></li>
+      <li><%= link_to "マイページ", mypages_path, class: "sub_item"%></li>
+      <li><%= link_to "TODOリスト", todopages_path, class: "sub_item" %></li>
+      <li><%= link_to "カレンダー", calendars_path, class: "sub_item" %></li>
+      <li><%= link_to "時間割", timetables_path, class: "sub_item" %></li>
+      <li><%= link_to "学習記録投稿", recodes_path, class: "sub_item" %></li>
+      <li><%= link_to "音楽ページ", musics_path, class: "sub_item" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sub_item"  %></li>
+    </ul>
+  </nav>
+
+<!--pc用ヘッダーリスト-->
+  <nav class="pc">  <!--pcクラスを追記-->
+    <ul class="pc_list">
+    <!-- Fontawesome + 文字でリンク -->
+      <li>
+      <%= link_to homes_path, class: "items" do %>
+        <i class="fas fa-home fa-lg fa-fw" ></i>ホーム
+      <% end %>
+      </li> 
+
+      <li>
+      <%= link_to mypages_path, class: "items" do %>
+        <i class="fas fa-user fa-lg fa-fw"></i>マイページ
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- ヘッダー閉じ -->
+
+<main>
+  <div class="boxes">
+    <h1 class="todo-title">Todo リスト</h1>
+    <%= form_with(model: @todopage, local: true) do |f| %>
+      <div class="field-container">
+        <%= f.text_field :text, required: true, maxlength: 60 %>
+        <%= button_tag type: "submit", class: "send-icon" do %>
+          <i class="fa fa-send"></i>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="boxes-inner"></div>
+    <div class="text-container">
+      <% @todopages.each do |t| %>
+        <div class="text-field">
+          <%= t.text %>
+          <div class="todo_option" >
+            <%= link_to todopage_path(t.id), method: :delete, class: "todo_destroy" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_todopage_path(t.id), class: "todo_edit" do %>
+              <i class="fas fa-edit" ></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="home-box"><%= link_to "<< Home", homes_path, class: "home-box" %></p>
+  </div>
+</main>
+</body>
+</html>

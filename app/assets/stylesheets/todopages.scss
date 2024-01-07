@@ -1,0 +1,166 @@
+// Place all the styles related to the todopages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//全体のbox
+.boxes {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px auto;
+  width: 60%;
+  margin-bottom: 150px;
+}
+
+//タイトル真ん中
+.todo-title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  color: black;
+}
+
+//フォームのサイズ変更
+input[type="text"] {
+  position: relative;
+  width: 60%;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+//送信ボタン
+.send-icon {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  color: white;
+  border-radius: 10%;
+  border: 1px solid #9d9d9d;
+  background-color: rgb(162, 208, 208);
+}
+
+
+//二重線
+.boxes-inner {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  border-bottom: 3px double #999999;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+//投稿したテキスト
+.text-field {
+  position: relative;
+  width: 100%;
+  border-bottom: 3px dotted #999999;
+  padding: 4px;
+  // white-space:nowrap; ×テキストを改行しない削除、編集ボタンが見えなくなる
+}
+
+//編集・削除ボタン
+.todo_option {
+  position: relative;
+  float: right;
+}
+
+.todo_destroy {
+  color: red;
+}
+
+.todo_edit {
+  color: blue;
+  padding: 0px 3px;
+}
+
+//マイページへ戻る
+.home-box {
+  position: relative;
+  padding-top: 10px;
+}
+
+
+
+//編集用ページの全体
+.boxes-edit {
+  position: relative;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  width: 50%;
+  border: 2px double #999999;
+  border-radius: 10px;
+  padding: 10px 0px 50px;
+}
+
+.back-box {
+  position: absolute;
+  bottom: 10px;
+  left: 16%;
+}
+
+.edit_send {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  color: white;
+  border-radius: 10%;
+  background-color: rgb(68, 65, 65);
+
+}
+
+
+@media (max-width: 900px) {
+  .boxes {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      margin: 10px auto;
+      width: 90%;
+  }
+
+  .send-icon {
+      position: relative;
+      width: 35px;
+      height: 25px;
+      color: white;
+      border-radius: 10%;
+      background-color: rgb(162, 208, 208);
+  }
+
+  input[type="text"] {
+      position: relative;
+      width: 70%;
+      height: 25px;
+      margin-bottom: 10px;
+  }
+  
+  .boxes-edit {
+      position: relative;
+      text-align: center;
+      margin-top: 40px;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      border: none;
+  }
+
+  .back-box {
+      position: relative;
+      margin-top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+}

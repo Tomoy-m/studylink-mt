@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timetable</title>
+</head>
+
+<body>
+
+<!--ヘッダー-->
+<header>  
+<!--ヘッダーロゴ-->
+  <div class="main_logo">
+    <%= link_to "StudyLink", homes_path, class: "logo" %>
+  </div>
+
+<!--ハンバーガーメニュー-->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<!--スマホ用ハンバーガーメニューのリスト-->
+  <nav class="sm">
+    <ul class="list">  <%# このサイト参照 https://zenn.dev/ganmo3/articles/8ae23a01dd1206 %>
+      <li><%= link_to "ホーム", homes_path, class: "sub_item" %></li>
+      <li><%= link_to "マイページ", mypages_path, class: "sub_item"%></li>
+      <li><%= link_to "TODOリスト", todopages_path, class: "sub_item" %></li>
+      <li><%= link_to "カレンダー", calendars_path, class: "sub_item" %></li>
+      <li><%= link_to "時間割", timetables_path, class: "sub_item" %></li>
+      <li><%= link_to "学習記録投稿", recodes_path, class: "sub_item" %></li>
+      <li><%= link_to "音楽ページ", musics_path, class: "sub_item" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sub_item"  %></li>
+    </ul>
+  </nav>
+
+<!--pc用ヘッダーリスト-->
+  <nav class="pc">  <!--pcクラスを追記-->
+    <ul class="pc_list">
+    <!-- Fontawesome + 文字でリンク -->
+      <li>
+      <%= link_to homes_path, class: "items" do %>
+        <i class="fas fa-home fa-lg fa-fw" ></i>ホーム
+      <% end %>
+      </li> 
+
+      <li>
+      <%= link_to mypages_path, class: "items" do %>
+        <i class="fas fa-user fa-lg fa-fw"></i>マイページ
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- ヘッダー閉じ -->
+
+<main>
+  <div class="timetable_box">
+    <h1 class="timetable_title">時間割</h1>
+
+    <div class="timetable_new_box">
+    <%= link_to "時間割投稿", new_timetable_path, class:"timetable_new" %>
+    </div>
+
+    <% @timetables.each do |t| %>
+        <table border="1", class="timetable_table">
+            <tr>
+                <th>
+                </th> 
+                <th>月曜日</th> 
+                <th>火曜日</th> 
+                <th>水曜日</th> 
+                <th>木曜日</th> 
+                <th>金曜日</th> 
+                <th>土曜日</th>
+            </tr>
+
+            <tr>
+                <th>
+                1<br>
+                <%= t.start_time1.strftime("%H:%M") %> ～ <%= t.finish_time1.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title11 %><br>
+                <%= t.classroom11 %><br>
+                </td> 
+                <td>
+                <%= t.title12 %><br>
+                <%= t.classroom12 %><br>
+                </td> 
+                <td>
+                <%= t.title13 %><br>
+                <%= t.classroom13 %><br>
+                </td>
+                <td>
+                <%= t.title14 %><br>
+                <%= t.classroom14 %><br>
+                </td>
+                <td>
+                <%= t.title15 %><br>
+                <%= t.classroom15 %><br>
+                </td> 
+                <td>
+                <%= t.title16 %><br>
+                <%= t.classroom16 %><br>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                2<br>
+                <%= t.start_time2.strftime("%H:%M") %> ～ <%= t.finish_time2.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title21 %><br>
+                <%= t.classroom21 %><br>
+                </td> 
+                <td>
+                <%= t.title22 %><br>
+                <%= t.classroom22 %><br>
+                </td> 
+                <td>
+                <%= t.title23 %><br>
+                <%= t.classroom23 %><br>
+                </td>
+                <td>
+                <%= t.title24 %><br>
+                <%= t.classroom24 %><br>
+                </td>
+                <td>
+                <%= t.title25 %><br>
+                <%= t.classroom25 %><br>
+                </td> 
+                <td>
+                <%= t.title26 %><br>
+                <%= t.classroom26 %><br>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                3<br>
+                <%= t.start_time3.strftime("%H:%M") %> ～ <%= t.finish_time3.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title31 %><br>
+                <%= t.classroom31 %><br>
+                </td> 
+                <td>
+                <%= t.title33 %><br>
+                <%= t.classroom33 %><br>
+                </td> 
+                <td>
+                <%= t.title33 %><br>
+                <%= t.classroom33 %><br>
+                </td>
+                <td>
+                <%= t.title34 %><br>
+                <%= t.classroom34 %><br>
+                </td>
+                <td>
+                <%= t.title35 %><br>
+                <%= t.classroom35 %><br>
+                </td> 
+                <td>
+                <%= t.title36 %><br>
+                <%= t.classroom36 %><br>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                4<br>
+                <%= t.start_time4.strftime("%H:%M") %> ～ <%= t.finish_time4.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title41 %><br>
+                <%= t.classroom41 %><br>
+                </td> 
+                <td>
+                <%= t.title42 %><br>
+                <%= t.classroom42 %><br>
+                </td> 
+                <td>
+                <%= t.title43 %><br>
+                <%= t.classroom43 %><br>
+                </td>
+                <td>
+                <%= t.title44 %><br>
+                <%= t.classroom44 %><br>
+                </td>
+                <td>
+                <%= t.title45 %><br>
+                <%= t.classroom45 %><br>
+                </td> 
+                <td>
+                <%= t.title46 %><br>
+                <%= t.classroom46 %><br>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                5<br>
+                <%= t.start_time5.strftime("%H:%M") %> ～ <%= t.finish_time5.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title51 %><br>
+                <%= t.classroom51 %><br>
+                </td> 
+                <td>
+                <%= t.title52 %><br>
+                <%= t.classroom52 %><br>
+                </td> 
+                <td>
+                <%= t.title53 %><br>
+                <%= t.classroom53 %><br>
+                </td>
+                <td>
+                <%= t.title54 %><br>
+                <%= t.classroom54 %><br>
+                </td>
+                <td>
+                <%= t.title55 %><br>
+                <%= t.classroom55 %><br>
+                </td> 
+                <td>
+                <%= t.title56 %><br>
+                <%= t.classroom56 %><br>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                6<br>
+                <%= t.start_time6.strftime("%H:%M") %> ～ <%= t.finish_time6.strftime("%H:%M") %>
+                </th> 
+                <td>
+                <%= t.title61 %><br>
+                <%= t.classroom61 %><br>
+                </td> 
+                <td>
+                <%= t.title62 %><br>
+                <%= t.classroom62 %><br>
+                </td> 
+                <td>
+                <%= t.title63 %><br>
+                <%= t.classroom63 %><br>
+                </td>
+                <td>
+                <%= t.title64 %><br>
+                <%= t.classroom64 %><br>
+                </td>
+                <td>
+                <%= t.title65 %><br>
+                <%= t.classroom65 %><br>
+                </td> 
+                <td>
+                <%= t.title66 %><br>
+                <%= t.classroom66 %><br>
+                </td>
+            </tr>
+        </table>
+
+    <div class="timetable_option">
+        <%= link_to edit_timetable_path(t.id), class: "timetable_edit" do %>
+            <i class="fas fa-edit" ></i>編集
+        <% end %>
+
+        <%= link_to timetable_path(t.id), method: :delete, data: {confirm: "時間割の全ての項目が削除されます。本当に削除しますか？"}, class: "timetable_destroy" do %>
+            <i class="fas fa-trash-alt"></i>消去
+        <% end %>
+    </div>
+    <% end %>
+
+    <div class="timetable_home">
+    <%= link_to ">>Home", homes_path %>
+    </div>
+  </div>
+</main>
+</body>
+</html>

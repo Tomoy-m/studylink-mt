@@ -1,0 +1,253 @@
+// Place all the styles related to the recodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.recodes_box {
+  margin-bottom: 500px;
+  width: 80%;
+}
+
+.recodes_title {
+  position: relative;
+  left: 10%;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+
+.icon_cycle_image {
+  position: absolute;
+  margin-top: 5px;
+  left: 10%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10%;  //画像を円形に
+  border: 2px solid white;
+  outline: 2px solid #333300;
+}
+
+.recode_box {
+  position: relative;
+  left: 10%;
+  padding-top: 5px;
+  border-bottom: 2px dotted #000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 40px;
+}
+
+.recode_name {
+  position: absolute;
+  top: 10px;
+  left: 20%;
+  font-weight: bold;
+}
+
+.recode_date {
+  position: absolute;
+  top: 0px;
+  left: 85%;
+}
+
+.recode_time, .recode_content {
+  position: relative;
+  top:10px;
+  left: 40%;
+}
+
+.recode_title {
+  position: absolute;
+  top: 15px;
+  left: 40%;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.recode_option {
+  position: absolute;
+  top: 50px;
+  left: 90%;
+  font-size: 20px;
+}
+
+.recodes_new {
+  position: fixed;
+  z-index: 500;
+  top: 60px;
+  left: 92%;
+  font-size: 40px;
+  color: blue;
+}
+
+.home_back {
+  position: relative;
+  left: 20%;
+}
+
+@media (max-width: 900px) {  
+  .recode_box {
+      position: relative;
+      left: 10%;
+      border-bottom: 2px dotted #000;
+      padding-bottom: 70px;
+  }
+
+  .icon_cycle_image {
+      position: absolute;
+      margin-top: 0px;
+      left: 10%;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;  //画像を円形に
+      border: 1px solid white;
+      outline: 2px solid #333300;
+  }
+
+  .recodes_new {
+      position: fixed;
+      z-index: 500;
+      top: 70%;
+      left: 90%;
+      font-size: 30px;
+      color: blue;
+  }
+
+  .recode_date {
+      position: absolute;
+      top: 0px;
+      left: 80%;
+      font-size: 10px;
+  }
+
+  .recode_name {
+      position: absolute;
+      top: 5px;
+      left: 20%;
+      font-weight: bold;
+  }
+
+  .recode_title {
+      display: none;
+  }
+
+  .recode_time {
+      position: relative;
+      top: 50px;
+      left: 20%;
+  }
+
+  .recode_content {
+      position: relative;
+      top: 50px;
+      left: 20%;
+  }
+
+  .recode_option {
+      position: absolute;
+      top: 50px;
+      left: 80%;
+      font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {   
+  .icon_cycle_image {
+      width: 30px;
+      height: 30px;
+  }
+
+  .recodes_new {
+      position: fixed;
+      z-index: 500;
+      top: 470px;
+      left: 85%;
+      font-size: 40px;
+      color: blue;
+  }
+
+  .recode_name {
+      position: absolute;
+      top: 5px;
+      left: 25%;
+      font-weight: bold;
+  }
+
+  .recode_time {
+      position: relative;
+      top: 50px;
+      left: 10%;
+  }
+
+  .recode_content {
+      position: relative;
+      top: 50px;
+      left: 10%;
+  }
+}
+
+
+.recode_editbox {
+  overflow: hidden;
+  width: 400px;
+  height: 250px;
+  margin: 35px auto 0;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  border-radius: 4px;
+  border: 2px #ddd solid;
+  padding: 20px 25px;
+}
+
+.recode_editbox h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recode_editbox li {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.recode_submit {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.recode_newbox {
+  overflow: hidden;
+  width: 400px;
+  height: 250px;
+  margin: 35px auto 0;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  border-radius: 4px;
+  border: 2px #ddd solid;
+  padding: 20px 25px;
+}
+
+.recode_newbox h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recode_newbox li {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tweet_back {
+  margin-top: 0px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .recode_newbox, .recode_editbox {
+      margin-top: 40px;
+      border: none;
+  }
+}

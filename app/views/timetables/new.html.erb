@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+<!--ヘッダー-->
+<header>  
+<!--ヘッダーロゴ-->
+  <div class="main_logo">
+    <%= link_to "StudyLink", homes_path, class: "logo" %>
+  </div>
+
+<!--ハンバーガーメニュー-->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<!--スマホ用ハンバーガーメニューのリスト-->
+  <nav class="sm">
+    <ul class="list">  <%# このサイト参照 https://zenn.dev/ganmo3/articles/8ae23a01dd1206 %>
+      <li><%= link_to "ホーム", homes_path, class: "sub_item" %></li>
+      <li><%= link_to "マイページ", mypages_path, class: "sub_item"%></li>
+      <li><%= link_to "TODOリスト", todopages_path, class: "sub_item" %></li>
+      <li><%= link_to "カレンダー", calendars_path, class: "sub_item" %></li>
+      <li><%= link_to "時間割", timetables_path, class: "sub_item" %></li>
+      <li><%= link_to "学習記録投稿", recodes_path, class: "sub_item" %></li>
+      <li><%= link_to "音楽ページ", musics_path, class: "sub_item" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sub_item"  %></li>
+    </ul>
+  </nav>
+
+<!--pc用ヘッダーリスト-->
+  <nav class="pc">  <!--pcクラスを追記-->
+    <ul class="pc_list">
+    <!-- Fontawesome + 文字でリンク -->
+      <li>
+      <%= link_to homes_path, class: "items" do %>
+        <i class="fas fa-home fa-lg fa-fw" ></i>ホーム
+      <% end %>
+      </li> 
+
+      <li>
+      <%= link_to mypages_path, class: "items" do %>
+        <i class="fas fa-user fa-lg fa-fw"></i>マイページ
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- ヘッダー閉じ -->
+
+<main>
+  <div class="timetable_box">
+  <h1 class="timetable_title">時間割投稿</h1>
+    <%= form_for @timetable do |f| %>
+    <table border="1", class="timetable_table">
+      <tr>
+          <th>
+          </th> 
+          <th>月曜日</th> 
+          <th>火曜日</th> 
+          <th>水曜日</th> 
+          <th>木曜日</th> 
+          <th>金曜日</th> 
+          <th>土曜日</th>
+      </tr>
+
+      <tr>
+          <th>
+          1<br>
+          <%= f.time_field :start_time1 %> ～ <%= f.time_field :finish_time1, required:true %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title11 %><br>
+          クラス：<%= f.text_field :classroom11 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title12 %><br>
+          クラス：<%= f.text_field :classroom12 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title13 %><br>
+          クラス：<%= f.text_field :classroom13 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title14 %><br>
+          クラス：<%= f.text_field :classroom14 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title15 %><br>
+          クラス：<%= f.text_field :classroom15 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title16 %><br>
+          クラス：<%= f.text_field :classroom16 %><br>
+          </td>
+      </tr>
+
+      <tr>
+          <th>
+          2<br>
+          <%= f.time_field :start_time2 %> ～ <%= f.time_field :finish_time2, required:true %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title21 %><br>
+          クラス：<%= f.text_field :classroom21 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title22 %><br>
+          クラス：<%= f.text_field :classroom22 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title23 %><br>
+          クラス：<%= f.text_field :classroom23 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title24 %><br>
+          クラス：<%= f.text_field :classroom24 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title25 %><br>
+          クラス：<%= f.text_field :classroom25 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title26 %><br>
+          クラス：<%= f.text_field :classroom26 %><br>
+          </td>
+      </tr>
+
+      <tr>
+          <th>
+          3<br>
+          <%= f.time_field :start_time3 %> ～ <%= f.time_field :finish_time3, required:true %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title31 %><br>
+          クラス：<%= f.text_field :classroom31 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title32 %><br>
+          クラス：<%= f.text_field :classroom32 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title33 %><br>
+          クラス：<%= f.text_field :classroom33 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title34 %><br>
+          クラス：<%= f.text_field :classroom34 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title35 %><br>
+          クラス：<%= f.text_field :classroom35 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title36 %><br>
+          クラス：<%= f.text_field :classroom36 %><br>
+          </td>
+      </tr>
+
+      <tr>
+          <th>
+          4<br>
+          <%= f.time_field :start_time4 %> ～ <%= f.time_field :finish_time4, required:true  %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title41 %><br>
+          クラス：<%= f.text_field :classroom41 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title42 %><br>
+          クラス：<%= f.text_field :classroom42 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title43 %><br>
+          クラス：<%= f.text_field :classroom43 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title44 %><br>
+          クラス：<%= f.text_field :classroom44 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title45 %><br>
+          クラス：<%= f.text_field :classroom45 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title46 %><br>
+          クラス：<%= f.text_field :classroom46 %><br>
+          </td>
+      </tr>
+
+      <tr>
+          <th>
+          5<br>
+          <%= f.time_field :start_time5 %> ～ <%= f.time_field :finish_time5, required:true %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title51 %><br>
+          クラス：<%= f.text_field :classroom51 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title52 %><br>
+          クラス：<%= f.text_field :classroom52 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title53 %><br>
+          クラス：<%= f.text_field :classroom53 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title54 %><br>
+          クラス：<%= f.text_field :classroom54 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title55 %><br>
+          クラス：<%= f.text_field :classroom55 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title56 %><br>
+          クラス：<%= f.text_field :classroom56 %><br>
+          </td>
+      </tr>
+
+      <tr>
+          <th>
+          6<br>
+          <%= f.time_field :start_time6 %> ～ <%= f.time_field :finish_time6, required:true  %>
+          </th> 
+          <td>
+          科目名：<%= f.text_field :title61 %><br>
+          クラス：<%= f.text_field :classroom61 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title62 %><br>
+          クラス：<%= f.text_field :classroom62 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title63 %><br>
+          クラス：<%= f.text_field :classroom63 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title64 %><br>
+          クラス：<%= f.text_field :classroom64 %><br>
+          </td>
+          <td>
+          科目名：<%= f.text_field :title65 %><br>
+          クラス：<%= f.text_field :classroom65 %><br>
+          </td> 
+          <td>
+          科目名：<%= f.text_field :title66 %><br>
+          クラス：<%= f.text_field :classroom66 %><br>
+          </td>
+      </tr>
+    </table>
+    <div class="timetable_submit_box">
+      <%= f.submit "登録", class: "timetable_submit" %>
+    </div>
+  <% end %>
+  <div class="timetable_back">
+  <%= link_to ">>戻る", timetables_path %>
+  </div>
+</div>
+</main>
+</body>
+</html>

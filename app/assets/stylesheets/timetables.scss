@@ -1,0 +1,114 @@
+// Place all the styles related to the timetables controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.timetable_box {
+  margin-bottom: 50px;
+}
+.timetable_title {
+  text-align: center;
+  margin: 30px;
+  font-size: 30px;
+}
+
+.timetable_table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timetable_new_box {
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+
+.timetable_new {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 40px;   /* 余白       */
+  background    : rgb(105, 150, 169);     /* 背景色     */
+  color         : #fff;     /* 文字色     */
+  line-height   : 15px;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid rgb(105, 150, 169);    /* 枠の指定 */
+}
+
+.timetable_new:hover {
+  color         : rgb(105, 150, 169);     /* 背景色     */
+  background    : #fff;     /* 文字色     */
+}
+
+.timetable_submit_box {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.timetable_submit {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 50px;   /* 余白       */
+  background    : rgb(47, 58, 78);     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid rgb(47, 58, 78);    /* 枠の指定 */
+}
+
+.timetable_submit:hover {
+  color         : rgb(47, 58, 78);     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.timetable_back, .timetable_home {
+  text-align: center;
+  margin-top: 20px;
+}
+.timetable_box th {
+  text-align: center;
+  background-color: #ccc;
+  padding:3px;
+  width: 100px;
+}
+
+.timetable_box td {
+  text-align: center;
+  padding:3px;
+  width: 120px;
+}
+
+.timetable_option {
+  position: absolute;
+  top: 70px;
+  right: 10%;
+  font-size: 20px;
+}
+
+.timetable_edit {
+  padding: 20px;
+  color: blue;
+}
+
+.timetable_destroy {
+  color: red;
+}
+
+@media (max-width: 900px) {
+  .timetable_option {
+    position: absolute;
+    top: 80px;
+    right: 5%;
+    font-size: 15px;
+  }
+
+  .timetable_edit {
+    padding: 5px;
+    color: blue;
+  }
+  
+}

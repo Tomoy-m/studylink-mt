@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン</title>
+</head>
+<body>
+
+<!--ヘッダー-->
+<header>  
+<!--ヘッダーロゴ-->
+  <div class="main_logo">
+    <%= link_to "StudyLink", tops_path, class: "logo" %>
+  </div>
+
+<!--ハンバーガーメニュー-->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<!--スマホ用ハンバーガーメニューのリスト-->
+  <nav class="sm">
+    <ul class="list">  <%# このサイト参照 https://zenn.dev/ganmo3/articles/8ae23a01dd1206 %>
+      <li><%= link_to "トップ", tops_path, class: "sub_item" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class: "sub_item" %></li>
+      <li><%= link_to "新規登録", new_user_registration_path, class: "sub_item" %></li>
+      <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "sub_item"%></li>
+      <li><%= link_to "マイページ", mypages_path, class: "sub_item"%></li>
+      <li><%= link_to "TODOリスト", todopages_path, class: "sub_item" %></li>
+      <li><%= link_to "カレンダー", calendars_path, class: "sub_item" %></li>
+      <li><%= link_to "時間割", timetables_path, class: "sub_item" %></li>
+      <li><%= link_to "学習記録投稿", recodes_path, class: "sub_item" %></li>
+      <li><%= link_to "音楽ページ", musics_path, class: "sub_item" %></li>
+    </ul>
+  </nav>
+
+<!--pc用ヘッダーリスト-->
+  <nav class="pc">  <!--pcクラスを追記-->
+    <ul class="pc_list">
+    <!-- Fontawesome + 文字でリンク -->
+      <li>
+          <%= link_to tops_path, class: "items" do %>
+            <i class="fas fa-home fa-lg fa-fw" ></i>トップ
+          <% end %>
+      </li> 
+      
+      <li>
+        <%= link_to new_user_session_path, class: "items" do %>
+          <i class="fas fa-sign-in fa-lg fa-fw" ></i>ログイン
+        <% end %>
+      </li> 
+
+      <li>
+        <%= link_to new_user_registration_path, class: "items" do %>
+          <i class="fas fa-user-plus fa-lg fa-fw"></i> 新規登録
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_guest_sign_in_path, method: :post, class: "items" do%>
+          <i class="fas fa-user-circle fa-lg fa-fw"></i> ゲスト
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- ヘッダー閉じ -->
+
+<main>
+  <div class="box">
+    <h1>ログイン</h1>
+    <%= form_with model: @user, url: user_session_path do |f| %>
+
+      <div class="box-email">
+        <%= f.label :email, "Eメール" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="box-password">
+        <div class="column-left">
+          <%= f.label :password, "パスワード" %>
+        </div>
+        <div class="column-right">
+          <%= link_to "パスワードを忘れた場合", new_user_password_path %>
+        </div>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="box-login">
+        <%= f.submit "ログイン" %>
+      </div>
+  
+      <div class="legal-text">
+        <% if devise_mapping.rememberable? %>
+          <div class="remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember, "ログインしたままにする" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="box-newusr">
+      <p><span>------------</span> アカウントをお持ちでない方 <span>------------</span></p>
+      <%= link_to "ゲストユーザーでログイン", users_guest_sign_in_path, method: :post, class: "box-guest"%>
+      <%= link_to "アカウントを作成", new_user_registration_path %>
+    </div>
+  </div>
+</main>
+</body>
+</html>
+

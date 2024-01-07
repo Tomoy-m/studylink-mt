@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top page</title>
+</head>
+
+<body>
+<!--ヘッダー-->
+<header>  
+<!--ヘッダーロゴ-->
+  <div class="main_logo">
+    <%= link_to "StudyLink", tops_path, class: "logo" %>
+  </div>
+
+<!--ハンバーガーメニュー-->
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<!--スマホ用ハンバーガーメニューのリスト-->
+  <nav class="sm">
+    <ul class="list">  <%# このサイト参照 https://zenn.dev/ganmo3/articles/8ae23a01dd1206 %>
+      <li><%= link_to "ログイン", new_user_session_path, class: "sub_item" %></li>
+      <li><%= link_to "新規登録", new_user_registration_path, class: "sub_item" %></li>
+      <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "sub_item"%></li>
+      <li><%= link_to "マイページ", mypages_path, class: "sub_item"%></li>
+      <li><%= link_to "TODOリスト", todopages_path, class: "sub_item" %></li>
+      <li><%= link_to "カレンダー", calendars_path, class: "sub_item" %></li>
+      <li><%= link_to "時間割", timetables_path, class: "sub_item" %></li>
+      <li><%= link_to "学習記録投稿", recodes_path, class: "sub_item" %></li>
+      <li><%= link_to "音楽ページ", musics_path, class: "sub_item" %></li>
+    </ul>
+  </nav>
+
+<!--pc用ヘッダーリスト-->
+  <nav class="pc">  <!--pcクラスを追記-->
+    <ul class="pc_list">
+    <!-- Fontawesome + 文字でリンク -->
+      <li>
+        <%= link_to new_user_session_path, class: "items" do %>
+          <i class="fas fa-sign-in fa-lg fa-fw" ></i>ログイン
+        <% end %>
+      </li> 
+
+      <li>
+        <%= link_to new_user_registration_path, class: "items" do %>
+          <i class="fas fa-user-plus fa-lg fa-fw"></i> 新規登録
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_guest_sign_in_path, method: :post, class: "items" do%>
+          <i class="fas fa-user-circle fa-lg fa-fw"></i> ゲスト
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- ヘッダー閉じ -->
+
+<main>
+<!--slick -->
+  <div class="previews">
+    <ul class="slider">
+      <li>
+        <%= image_tag 'desk.jpg' %>
+        <span class="inner_title">
+          <p>学習サポートサイト</p>
+          <%= link_to " Study Link",tops_path, class: "link-text" %>
+        </span>
+      </li>
+      <li>
+        <%= image_tag 'Todo.jpg'%>
+        <span class="inner_title">
+          <p>タスクを一括管理</p>
+          <%= link_to " Todo List ",todopages_path, class: "link-text"  %>
+        </span>
+      </li>
+      <li>
+        <%= image_tag 'post.jpg'%>
+        <span class="inner_title" >
+          <p>学習記録を共有</p>
+          <%= link_to " Recodes ", recodes_path, class: "link-text"  %>
+        </span></li>
+      <li>
+        <%= image_tag 'calendar.jpg'%>
+          <span class="inner_title">
+            <p>スケジュール管理</p>
+            <%= link_to " calendar ", calendars_path, class: "link-text"  %>
+          </span></li>
+    </ul>
+  </div>
+<!--slick 閉じ-->
+
+<!--画像より下のテキスト-->
+  <div class="top-box">
+    <h1 class="title-box">Study Link</h1>
+  </div>
+
+  <div class="about-box fadeLeftTrigger"> <!--JS スクロール左から出現 -->
+    <h2 class="about-title">About</h2>
+    <p>
+      <span>学習サポートサイトStudy Linkへようこそ!</span> <br>
+      <span>Study Linkは、</span>
+      <span><strong>大学生向けのタスク、学習管理アプリ</strong>です。</span> <br>
+      <span>当サイトは、学習と知識の共有を推奨し、</span>
+      <span>人々がスキルを向上させることで,</span> <br>
+      <span>新しい知識を獲得できる場を提供しています!</span> <br>
+    <p>
+    <p> &gt; &gt;まずは<%= link_to " ログイン", new_user_session_path %></p>
+  </div>
+
+  <div class="cando-box fadeRightTrigger"> <!--JS スクロール左から出現 -->
+    <h2 class="cando-title">Can do</h2>
+    <p>
+      <span>当サイトの魅力は以下の点にあります！</span> <br>
+      <span>・面倒なスケジュール管理をサイトで<strong>一括化！</strong></span> <br>
+      <span>・スマホでも使える<strong>レスポンシブ対応！</strong> </span> <br>
+      <span>・使いやすい<strong>シンプルなデザイン！</strong></span> <br>
+      <span>・<strong>学習記録を共有</strong>してモチベーションアップ！</span> <br>
+      <span>・<strong>音楽</strong>を流して気分アップ♪</span> <br>
+      <span>以上をもとに、あなたのなりの学習サイトを</span>
+      <span>カスタマイズできます。</span> <br>
+    </p>
+    <p> &gt; &gt;<%= link_to " マイページ", mypages_path %></p>
+  </div>
+
+  <div class="Music-box fadeLeftTrigger"> <!--JS スクロール左から出現 -->
+    <h2 class="Music-title">Music</h2>
+    <p>
+      <span>集中力アップのため、環境音やジャズなどの</span>
+      <span>音源を用意しています。</span> <br>
+      <span>まるでカフェにいるかのような環境で</span>
+      <span>勉強しましょう！</span> <br>
+      <span>好きな音楽をアップロードして</span>
+      <span>聴くことも可能です!</span> <br>
+    </p>
+    <p class="sample">サンプル音源</p>
+    <!-- audio_tag 音楽再生-->
+    <%= audio_tag "sample.mp3", :controls => true %> <!--動作不安定 :autoplay => trueで自動再生可 -->
+    <p> &gt; &gt;<%= link_to " 音楽ページ", musics_path %></p>
+  </div>
+
+  <!--Contents-->
+  <div class="top-box">
+    <h1 class="title-box">Contents</h1>
+  </div>
+
+  <div class="contents-box">
+    <h2 class="Todo-title">Todoリスト</h2>
+      <p>大学での課題やレポートの出し忘れを防ぎます!</p>
+      <p> &gt;&gt;ページは<%= link_to "こちら", todopages_path %></p>
+
+    <h2 class="Calendar-title">Calendar</h2>
+      <p>スケジュール管理もこれひとつ！</p>
+      <p> &gt;&gt;ページは<%= link_to "こちら", calendars_path %></p>
+
+    <h2 class="Timetables-title">時間割</h2>
+      <p>大学の時間割を管理しよう!</p>
+      <p> &gt;&gt;ページは<%= link_to "こちら", timetables_path %></p>
+
+    <h2 class="Tweets-title">学習Tweet</h2>
+      <p>学習した記録を友達と共有しよう！</p>
+      <p> &gt;&gt;ページは<%= link_to "こちら", recodes_path %></p>
+  </div>
+
+</main>
+  <!--JS ローディングアニメーション-->
+  <div class="start">
+    <p class="start_logo">
+      <%= image_tag '2.jpg', class: "start_image" %>
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tester</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/14af6616b9.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <%= favicon_link_tag('favicon.ico') %>
+  </head>
+
+  <body>
+    <div class="wrapper">  <!--ヘッダー上部からフッターの高さ指定-->
+      <%= yield %>
+
+  <!--共有フッター-->
+  <footer>
+    <!--一番上のタイトルボックス -->
+    <div class="footer-title">
+      <p class="footer-logo">Study Link</p>
+    </div>
+    
+    <!--真ん中のボックス-->
+      <div class="footer-box">
+        <div class="foot-wrap">       
+          <div class="menu-left">  <!--左 -->
+            <h3 class="menu-top">概要</h3>
+            <ul class="foot-left">
+                <li><%= link_to "トップ", tops_path %></li>
+                <li><%= link_to "ホーム", homes_path%></li>
+                <li><%= link_to "マイページ", mypages_path %></li>
+            </ul>
+          </div>
+          
+          <div class="menu-center">  <!--真ん中 -->
+                <h3 class="menu-top">サインイン</h3>
+                <ul class="foot-center">
+                    <li><%= link_to "ログイン", new_user_session_path %></li>
+                    <li><%= link_to "新規登録", new_user_registration_path %></li>
+                    <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></li>
+                </ul>
+          </div>
+           
+          <div class="menu-right">  <!--右 -->
+                <h3 class="menu-top">コンテンツ一覧</h3>
+                <ul class="foot-right">
+                    <li><%= link_to "TODOリスト", todopages_path %></li>
+                    <li><%= link_to "カレンダー", calendars_path %></li>
+                    <li><%= link_to "学習記録投稿", recodes_path %></li>
+                    <li><%= link_to "時間割", timetables_path %></li>
+                    <li><%= link_to "音楽ページ", musics_path %></li>
+                </ul>
+          </div>
+        </div>
+      </div>
+
+    <!--一番下のcopyright ボックス-->
+    <p class="copyrigth">Copyright ©2023 Tomoya</p>
+  </footer>
+    </div>
+  </body>
+</html>
